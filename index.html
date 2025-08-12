@@ -1065,20 +1065,20 @@
             <p>اكتشف أحدث التقنيات والخدمات التي نقدمها في عيادتنا لجراحة العيون وتصحيح الإبصار وتجميل الجفون نوفر تشخيصاً دقيقاً وعلاجاً متقدماً لأمراض العيون المختلفة باستخدام أحدث الأجهزة الطبية.</p>
         </div>
         
-        <!-- Video 1 - Changed to local video -->
-        <div class="video-container" onclick="openVideo('v1.mp4')">
+        <!-- Video 1 - Fixed local video -->
+        <div class="video-container">
             <div class="video-wrapper">
-                <video controls preload="metadata" poster="thumbnail1.jpg">
+                <video controls width="100%">
                     <source src="v1.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
         </div>
         
-        <!-- Video 2 - Changed to local video -->
-        <div class="video-container" onclick="openVideo('v2.mp4')">
+        <!-- Video 2 - Fixed local video -->
+        <div class="video-container">
             <div class="video-wrapper">
-                <video controls preload="metadata" poster="thumbnail2.jpg">
+                <video controls width="100%">
                     <source src="v2.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو.
                 </video>
@@ -1087,18 +1087,6 @@
     </div>
 </section>
 
-<!-- Video Modal - Modified to use video element -->
-<div class="video-modal" id="videoModal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeVideo()">&times;</span>
-        <div class="modal-video">
-            <video controls id="modalVideoFrame">
-                <source id="modalVideoSource" src="" type="video/mp4">
-                متصفحك لا يدعم تشغيل الفيديو.
-            </video>
-        </div>
-    </div>
-</div>
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
@@ -1372,32 +1360,7 @@
         });
         
         
-    // Updated Video Modal Functions
-    function openVideo(videoSrc) {
-        const modal = document.getElementById('videoModal');
-        const video = document.getElementById('modalVideoFrame');
-        const source = document.getElementById('modalVideoSource');
-        
-        source.src = videoSrc;
-        video.load();
-        video.play().catch(e => console.log("Auto-play prevented:", e));
-        
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
     
-    function closeVideo() {
-        const modal = document.getElementById('videoModal');
-        const video = document.getElementById('modalVideoFrame');
-        
-        video.pause();
-        video.currentTime = 0;
-        document.getElementById('modalVideoSource').src = '';
-        
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
     </script>
 </body>
 </html>
